@@ -4,10 +4,17 @@ import Root from './containers/Root';
 import * as serviceWorker from './serviceWorker';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { createStore } from 'redux';
+import { createStore, applyMiddleware } from 'redux';
+import thunk from 'redux-thunk';
+
 import rootReducer from './reducers';
 
-const store = createStore(rootReducer)
+import "./index.scss"
+
+const store = createStore(
+  rootReducer,
+  applyMiddleware(thunk)
+)
 
 ReactDOM.render(<Root store={store}/>, document.getElementById('root'));
 

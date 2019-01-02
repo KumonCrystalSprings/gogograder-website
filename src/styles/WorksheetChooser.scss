@@ -1,0 +1,25 @@
+.chooser {
+    margin-top: 10%;
+
+    .chooser-title {
+        margin-bottom: 16px
+    }
+}
+
+@media (min-width: 1200px) {
+    .chooser {
+        max-width: 720px !important;
+    }
+}
+
+@media (min-width: 992px) {
+    .chooser {
+        max-width: 600px !important;
+    }
+}
+
+@media (min-width: 768px) {
+    .chooser {
+        max-width: 600px !important;
+    }
+}

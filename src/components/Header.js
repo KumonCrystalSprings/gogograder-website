@@ -14,7 +14,7 @@ function Header(props) {
 }
 
 Header.propTypes = {
-  children: PropTypes.any.isRequired
+  children: PropTypes.node.isRequired
 }
 
 export default Header
