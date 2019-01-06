@@ -7,25 +7,9 @@ import { Container, Row, Col, Button, Input } from "reactstrap"
 import "../styles/WorksheetChooser.scss"
 import { Redirect } from "react-router-dom";
 
-const options =[
-  {
-    label: "Math",
-    options: [
-      {value: "math-a", label: "Math Level A"},
-      {value: "math-b", label: "Math Level B"},
-    ]
-  },
-  {
-    label: "English",
-    options: [
-      {value: "english-c", label: "English Level C"},
-      {value: "english-d", label: "English Level D"},
-    ]
-  }
-]
-
 export default class WorksheetChooser extends React.Component {
   static propTypes = {
+    options: PropTypes.array.isRequired,
     onSelect: PropTypes.func.isRequired
   }
 
@@ -44,25 +28,25 @@ export default class WorksheetChooser extends React.Component {
   }
 
   handleWorksheetChange(value, actionType) {
-    this.setState({selectedWorksheet: value.label})
+    this.setState({ selectedWorksheet: value.label })
   }
 
   handlePageChange(event) {
     if (event.target.value) {
-      this.setState({selectedPage: event.target.value})
+      this.setState({ selectedPage: event.target.value })
     } else {
-      this.setState({selectedPage: null})
+      this.setState({ selectedPage: null })
     }
   }
 
   handleSubmit(event) {
     this.props.onSelect(this.props.selectedWorksheet, this.props.selectedPage)
-    this.setState({redirect: true})
+    this.setState({ redirect: true })
   }
 
   render() {
     if (this.state.redirect) {
-      return <Redirect push to={"/worksheets/" + this.state.selectedWorksheet + "/" + this.state.selectedPage}/>
+      return <Redirect push to={"/worksheets/" + this.state.selectedWorksheet + "/" + this.state.selectedPage} />
     }
 
     return (
@@ -70,14 +54,14 @@ export default class WorksheetChooser extends React.Component {
         <Row className="chooser-title">
           <Col>
             <h1>Choose a worksheet:</h1>
-          </Col> 
+          </Col>
         </Row>
         <Row className="chooser-select">
           <Col>
-            <Select options={options} placeholder="worksheet" onChange={this.handleWorksheetChange} />
+            <Select options={this.props.options} placeholder="worksheet" onChange={this.handleWorksheetChange} />
           </Col>
           <Col xs="2" className="p-0">
-            <Input type="number" placeholder="page" onChange={this.handlePageChange}/>
+            <Input type="number" placeholder="page" onChange={this.handlePageChange} />
           </Col>
           <Col xs="auto">
             <Button color="primary" disabled={!(this.state.selectedWorksheet && this.state.selectedPage)} onClick={this.handleSubmit}>Go!</Button>

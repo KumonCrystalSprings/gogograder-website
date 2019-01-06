@@ -6,9 +6,7 @@ function account(state = {}, action) {
       return {
         accountType: action.accountType,
         name: action.name,
-        studentId: action.studentId,
         sessionId: action.sessionId,
-        expires: action.expires
       }
     case "LOGOUT":
       return {}

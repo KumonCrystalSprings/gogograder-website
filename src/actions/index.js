@@ -1,20 +1,27 @@
-export const loginStudent = (name, id) => (dispatch) => {
-  // return new Promise((resolve, reject) => setInterval(resolve, 2000, true))
-  return new Promise((resolve, reject) => setInterval(resolve, 1000, {name: name, studentId: id, sessionId: "asdf", expires: 0}))
-    .then((resp) => {
-      dispatch(setStudent(resp))
+import axios from "axios";
+
+export const loginStudent = (name, password) => (dispatch) => {
+  // return new Promise((resolve, reject) => setInterval(resolve, 1000, {name: name, studentId: id, sessionId: "asdf", expires: 0}))
+  //   .then((resp) => {
+  //     dispatch(setStudent(resp))
+  //     return true
+  //   })
+  return axios.post("http://localhost/login", JSON.stringify({ name: name, password: password }))
+    .then(resp => {
+      dispatch(setStudent(name, resp.data))
       return true
+    })
+    .catch(resp => {
+      return false
     })
 }
 
 
-const setStudent = ({name, studentId, sessionId, expires}) => ({
+const setStudent = (name, sessionId) => ({
   type: "LOGIN",
   accountType: "STUDENT",
   name: name,
-  studentId: studentId,
   sessionId: sessionId,
-  expires: 0
 })
 
 export const logout = () => ({ type: "LOGOUT" })

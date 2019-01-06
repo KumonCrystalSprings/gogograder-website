@@ -1,15 +1,14 @@
 import React from "react"
 
-import { Button } from "reactstrap"
-import { Link, Redirect } from "react-router-dom";
+import { Redirect } from "react-router-dom";
 import { connect } from 'react-redux'
 import PropTypes from 'prop-types'
 
 import Header from "../components/Header"
-import StudentLoginDialogue from "../components/StudentLoginDialogue";
+import LoginDialogue from "../components/LoginDialogue";
 import { loginStudent } from "../actions"
 
-class StudentLoginPage extends React.Component {
+class LoginPage extends React.Component {
   static propTypes = {
     loginStudent: PropTypes.func.isRequired
   }
@@ -41,10 +40,8 @@ class StudentLoginPage extends React.Component {
 
     return (
       <div>
-        <Header>
-          <Button color="danger" tag={Link} to="/admin">Admin Login</Button>
-        </Header>
-        <StudentLoginDialogue 
+        <Header />
+        <LoginDialogue 
           login={this.login}
         />
       </div>
@@ -52,4 +49,4 @@ class StudentLoginPage extends React.Component {
   }
 }
 
-export default connect(null, {loginStudent})(StudentLoginPage)
+export default connect(null, {loginStudent})(LoginPage)

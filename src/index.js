@@ -13,6 +13,7 @@ import "./index.scss"
 
 const store = createStore(
   rootReducer,
+  {account: {accountType: "LOGGED_OUT"}},
   applyMiddleware(thunk)
 )
 

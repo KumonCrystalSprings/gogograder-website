@@ -1,6 +1,6 @@
 import React from "react"
 import PropTypes from 'prop-types'
-import { Container, Row, Col, Input } from "reactstrap";
+import { Container, Row, Col } from "reactstrap";
 
 import "../styles/WorksheetHeader.scss"
 
@@ -20,10 +20,7 @@ export default class WorksheetTitle extends React.Component {
           </Row>
           <Row className="justify-content-md-center ws-page">
             <Col sm="auto">
-              Page
-            </Col>
-            <Col sm="auto">
-              <Input type="number" size="sm" value={this.props.page} />
+              Page {this.props.page}
             </Col>
           </Row>
       </Container>

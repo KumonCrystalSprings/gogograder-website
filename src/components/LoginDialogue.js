@@ -5,7 +5,7 @@ import { Button, Container, Row, Form, FormGroup, Label, Input } from "reactstra
 
 import "../styles/StudentLoginDialogue.scss"
 
-export default class StudentLoginDialogue extends React.Component {
+export default class LoginDialogue extends React.Component {
   static propTypes = {
     login: PropTypes.func.isRequired
   }
@@ -14,7 +14,7 @@ export default class StudentLoginDialogue extends React.Component {
 
     this.state = {
       name: "",
-      id: "",
+      password: "",
       loginFailure: false,
       loginError: false,
       processingLogin: false
@@ -39,7 +39,7 @@ export default class StudentLoginDialogue extends React.Component {
       processingLogin: true
     })
 
-    this.props.login(this.state.name, this.state.id)
+    this.props.login(this.state.name, this.state.password)
       .then(success => {
         if (!success) {
           this.setState({
@@ -75,12 +75,12 @@ export default class StudentLoginDialogue extends React.Component {
                 />
               </FormGroup>
               <FormGroup>
-                <Label for="inputId">ID</Label>
+                <Label for="inputPassword">Password</Label>
                 <Input
-                  type="number"
-                  id="inputId"
-                  placeholder="00"
-                  name="id"
+                  type="text"
+                  id="inputPassword"
+                  placeholder="123456"
+                  name="password"
                   value={this.state.id}
                   onChange={this.handleInputChange}
                   disabled={this.state.processingLogin}
