@@ -32,7 +32,7 @@ class WorksheetChooserPage extends React.Component {
   }
 
   getWorksheets() {
-    return axios.get("http://localhost/worksheets", {params:{id: this.props.account.sessionId}})
+    return axios.get("http://api.gogograder.com/worksheets", {params:{id: this.props.account.sessionId}})
       .then(resp => {
         let options = []
         for (var i of resp.data) {

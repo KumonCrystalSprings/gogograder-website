@@ -41,7 +41,7 @@ import { Redirect } from "react-router-dom";
   }
 
   getAnswers() {
-    return axios.get("http://localhost/worksheets/" + this.props.match.params.worksheet + "/" + this.props.match.params.page, {params:{id: this.props.account.sessionId}})
+    return axios.get("http://api.gogograder.com/worksheets/" + this.props.match.params.worksheet + "/" + this.props.match.params.page, {params:{id: this.props.account.sessionId}})
       .then(resp => {
         this.setState({
           correctAnswers: resp.data.answers,
@@ -74,7 +74,7 @@ import { Redirect } from "react-router-dom";
       score = "60%"
     }
 
-    axios.post("http://localhost/submit", JSON.stringify({
+    axios.post("http://api.gogograder.com/submit", JSON.stringify({
       worksheet: this.props.match.params.worksheet,
       page: parseInt(this.props.match.params.page),
       score: parseInt(score.substring(0, score.length - 2)),

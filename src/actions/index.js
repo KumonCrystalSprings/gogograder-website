@@ -6,7 +6,7 @@ export const loginStudent = (name, password) => (dispatch) => {
   //     dispatch(setStudent(resp))
   //     return true
   //   })
-  return axios.post("http://localhost/login", JSON.stringify({ name: name, password: password }))
+  return axios.post("http://api.gogograder.com/login", JSON.stringify({ name: name, password: password }))
     .then(resp => {
       dispatch(setStudent(name, resp.data))
       return true
