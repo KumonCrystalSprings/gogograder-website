@@ -53,7 +53,7 @@ export default class WorksheetChooser extends React.Component {
       <Container className="chooser">
         <Row className="chooser-title">
           <Col>
-            <h1>Choose a worksheet:</h1>
+            <h1>Choose a level:</h1>
           </Col>
         </Row>
         <Row className="chooser-select">
