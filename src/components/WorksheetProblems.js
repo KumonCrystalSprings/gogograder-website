@@ -77,7 +77,8 @@ export default class WorksheetProblems extends React.Component {
   toggleModal() {
     if (!this.state.modalOpen) {
       this.setState({
-        finalMin: Math.round(this.state.secondsElapsed / 60)
+        finalMin: Math.round(this.state.secondsElapsed / 60),
+        reportedMin: Math.round(this.state.secondsElapsed / 60)
       })
     }
     this.setState({ modalOpen: !this.state.modalOpen })
