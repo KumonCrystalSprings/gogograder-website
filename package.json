@@ -5,7 +5,7 @@
   "dependencies": {
     "axios": "^0.18.1",
     "bootstrap": "^4.3.1",
-    "node-sass": "^4.11.0",
+    "node-sass": "^4.13.1",
     "prop-types": "^15.6.2",
     "react": "^16.7.0",
     "react-cookie": "^3.0.8",
